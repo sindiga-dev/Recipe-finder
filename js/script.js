@@ -162,6 +162,9 @@ const addMeals=function(mealDataArr){
             }
           });
 
+        //get random meal, click
+        randomBtn.addEventListener('click', getRandomMeal);
+
 
 
     
