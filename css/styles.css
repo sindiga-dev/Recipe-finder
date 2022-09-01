@@ -163,3 +163,33 @@ input:focus{
   a:visited {
     background-color: inherit;
   }
+  @media(max-width:500px){
+    input[type="text"]{
+        width: 100%;
+    }
+    .meals{
+        grid-template-columns:1fr;
+    }
+    .meal{
+        width: 300px;
+        height: auto;
+    }
+  }
+  @media(max-width:800px){
+    .meals{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .meal{
+        width: 300px;
+        height: 300px;
+    }
+  }
+  @media (max-width: 800px) {
+    .meals {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .meal {
+      height: 180px;
+      width: 180px;
+    }
+  }
