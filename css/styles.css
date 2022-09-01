@@ -1,0 +1,9 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: azure;
+    color: black;
+    font-family: 'poppins', sans-serif;
+    margin: 0;
+}
