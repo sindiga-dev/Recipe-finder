@@ -142,4 +142,10 @@ const addMeals=function(mealDataArr){
             singleMealEl.scrollIntoView({ behavior: 'smooth' });
         };
 
+
+        //EVENT LISTENERS
+        //submit form on click
+        submitBtn.addEventListener('click',searchMeal);
+        
+
     
