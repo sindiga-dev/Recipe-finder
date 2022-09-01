@@ -21,7 +21,6 @@
   
   .flex {
     display: flex;
-    /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
   }
@@ -141,9 +140,7 @@
   
   .single-meal ul li {
     border: 1px solid #ededed;
-    /* border-radius: 5px; */
     background-color: #fff;
-    /* display: inline-block; */
     color: #4c6ca0;
     font-size: 12px;
     font-weight: bold;
