@@ -14,3 +14,24 @@ const getJSON=async function(url ,errorMsg='Something went wrong!'){
         return res.json();
     });
 }
+
+
+//add meals to the DOM
+const addMeals=function(mealDataArr){
+    const innerHTML=[];
+    mealDataArr.forEach((mealData)=>{
+        const string=mealData.meals.map( 
+            (meal)=> 
+            `<div class="meal">
+                <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
+                <div class="meal-info" data-mealID="${meal.idMeal}">
+                <h3>${meal.strMeal}</h3>
+                </div>
+            </div>`
+        )
+        .join('');
+        innerHTML.push(string);
+            });
+    mealsEl.innerHTML=innerHTML.join('');
+        };
+    
