@@ -111,5 +111,35 @@ const addMeals=function(mealDataArr){
           }
 
           //add meal from dom
+          singleMealEl.innerHTML = `
+            <div class="single-meal">
+                <h1>${meal.strMeal}</h1>
+                <img src="${meal.strMealThumb}" alt="${meal.strMeal}"/>
+                <div class="single-meal-info">
+                    ${meal.strCategory ? `<p>${meal.strCategory}</p>` : ''}
+                    ${meal.strCategory ? `<p><i>${meal.strArea}</i></p>` : ''}
+                </div>
+                <div class="main">
+                    ${meal.strYoutube ? `<h3>This Recipe Has A YouTube Video! </h4>` : ''}
+                    ${
+                    meal.strYoutube
+                    ? `<div class="link"><a href=${meal.strYoutube}>YouTube</a></div>`
+                    : ''
+                }
+                     ${meal.strInstructions
+                .split(';')
+                .map((item) => `<p>${item}.</p>`)
+                .join('')}
+                    </div>
+                        <h2>Ingredients</h2>
+                    <ul>
+                ${recipeData
+                .map((item) => `<li>${item.ingredient}: ${item.quantity}</li>`)
+                .join('')}
+                </ul>
+            </div>`;
 
-    }
+            singleMealEl.scrollIntoView({ behavior: 'smooth' });
+        };
+
+    
