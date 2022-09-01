@@ -146,6 +146,22 @@ const addMeals=function(mealDataArr){
         //EVENT LISTENERS
         //submit form on click
         submitBtn.addEventListener('click',searchMeal);
-        
+        //Get recipe click
+        mealsEl.addEventListener('click', (e) => {
+            let path = e.path || (e.composedPath && e.composedPath());
+            const mealInfo = path.find((item) => {
+              if (item.classList) {
+                return item.classList.contains('meal-info');
+              } else {
+                false;
+              }
+            });
+            if (mealInfo) {
+              const mealID = mealInfo.getAttribute('data-mealid');
+              getMealByID(mealID);
+            }
+          });
+
+
 
     
