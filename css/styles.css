@@ -141,3 +141,25 @@ input:focus{
     box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
     margin: auto;
   }
+  .single-meal p {
+    margin: 10px;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+  }
+  
+  .single-meal ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+  .link:hover {
+    background-color: #000000;
+    color: #fff;
+  }
+  .link a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    background-color: inherit;
+  }
