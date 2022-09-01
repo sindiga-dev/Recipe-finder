@@ -57,7 +57,7 @@ input:focus{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .meal{
     cursor: pointer;
@@ -70,7 +70,7 @@ input:focus{
 .meal img{
     width: 1000%;
     height: 100%;
-    border: 1px solid #dedede;
+    border: 1px  #dedede solid;
 }
 .meal-info{
     position: absolute;
@@ -80,13 +80,8 @@ input:focus{
     height: 100%;
     background-color: rgba(0,0,0,0.5);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
-    font-size: 18px;
-    padding: 10px;
-    cursor: pointer;
     transition: opacity 0.3s ease-in;
     opacity: 0;
 }
@@ -95,13 +90,13 @@ input:focus{
 }
 .single-meal{
     margin: 30px auto;
-    width: 80%;
+    width: 70%;
 }
 .single-meal img{
-    width:380px;
+    width:360px;
     margin: 15px;
     border: 1px #fff solid;
-    border-radius: 3px;
+    border-radius: 2px;
 
 }
 .single-meal-info{

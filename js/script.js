@@ -6,12 +6,12 @@ const singleMealEL=document.getElementById('single-meal');
 const resultHeading=document.getElementById('result-heading');
 const mealsEl=document.getElementById('meals');
 const getJSON=async function(url ,errorMsg='Something went wrong!'){
-    return await fetch(url).then(res=>{
-        if(!res.ok){
+    return await fetch(url).then(response=>{
+        if(!response.ok){
             resultHeading.innerHTML='<h2>There has been an error!</h2>';
-            throw new Error(`${errorMsg}(${res.status})`);
+            throw new Error(`${errorMsg}(${response.status})`);
         }
-        return res.json();
+        return response.json();
     });
 }
 
@@ -84,15 +84,15 @@ const addMeals=function(mealDataArr){
 
         //work with api format
         class recipeItem{
-            constructor(ingredients, quantity){
-                this.ingredient=this.ingredient;
+            constructor(ingredient, quantity){
+                this.ingredient=ingredient;
                 this.quantity=quantity;
 
             }
         }
     // add selected meal to DOM
     const addMealToDOM=function(meal){
-        const ingredient=[];
+        const ingredients=[];
         const measurements=[];
         const recipeData=[];
 
@@ -142,10 +142,61 @@ const addMeals=function(mealDataArr){
             singleMealEl.scrollIntoView({ behavior: 'smooth' });
         };
 
+        function findPos() {
+            var curtop = 0;
+            if (obj.offsetParent) {
+              do {
+                curtop += obj.offsetTop;
+              } while ((obj = obj.offsetParent));
+              return [curtop];
+            }
+          }
+          
+          // Fetch meal by ID
+          const getMealByID = async function (mealID) {
+            // API ID lookup feature
+            const data = await getJSON(
+              `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`
+            );
+            const meal = data.meals[0];
+            addMealToDOM(meal);
+          };
+          
+          // Fetch random meal
+          const getRandomMeal = async function () {
+            mealsEl.innerHTML = '';
+            resultHeading.innerHTML = '';
+          
+            const data = await getJSON(
+              'https://www.themealdb.com/api/json/v1/1/random.php'
+            );
+            const meal = data.meals[0];
+            addMealToDOM(meal);
+          };
+          
+          // Init
+          const init = async function () {
+            const areas = ['French', 'American', 'British', 'Italian', 'Chinese'];
+            const random = Math.floor(Math.random() * 5);
+            let randomCuisine = areas[random];
+          
+            //Filter meals by area
+            const mealData = await getJSON(
+              `https://www.themealdb.com/api/json/v1/1/filter.php?a=${randomCuisine}`
+            );
+            resultHeading.innerHTML = `<h2> Search results for '${randomCuisine}'</h2>`;
+            const meals = [mealData];
+            displayMeals(meals);
+          };
+          init();
+
 
         //EVENT LISTENERS
         //submit form on click
-        submitBtn.addEventListener('click',searchMeal);
+        submitBtn.addEventListener('submit',searchMeal);
+
+        //get random meal, click
+        randomBtn.addEventListener('click', getRandomMeal);
         //Get recipe click
         mealsEl.addEventListener('click', (e) => {
             let path = e.path || (e.composedPath && e.composedPath());
@@ -162,8 +213,7 @@ const addMeals=function(mealDataArr){
             }
           });
 
-        //get random meal, click
-        randomBtn.addEventListener('click', getRandomMeal);
+        
 
 
 
