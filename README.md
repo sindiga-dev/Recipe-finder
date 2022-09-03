@@ -15,7 +15,8 @@
 
 ## Description
 
-This is a simple Recipe finder app that helps the user to find different recipes of different meals, by searching the name, origin or main ingredient. The recipe finder displays the ingredients and cooking procedure. it also has a Youtube tutorial
+This is a simple Recipe finder app that helps the user to find different recipes of different meals, by searching the name, origin or main ingredient. The recipe finder displays the ingredients and cooking procedure. it also has a Youtube tutorial.
+The app also generats random meals that you can cook
 
 ![myimage-alt-tag](./images/Screenshot%20from%202022-09-03%2014-11-22.png)
 
